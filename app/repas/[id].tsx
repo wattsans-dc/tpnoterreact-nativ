@@ -40,7 +40,6 @@ export default function DetailRepas() {
     router.push("/");
   };
 
-  // Fonction pour calculer les calories totales
   const getTotalCalories = () => {
     if (!repas || !repas.items) return 0;
     return repas.items.reduce((total, item) => total + (item.calories || 0), 0);
@@ -62,14 +61,13 @@ export default function DetailRepas() {
     );
   }
 
-  const totalCalories = getTotalCalories(); // Calcul des calories totales
+  const totalCalories = getTotalCalories();
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Détail du repas :</Text>
       <Text style={styles.label}>Nom : {repas.nom}</Text>
 
-      {/* Affichage des calories totales */}
       <Text style={styles.totalCalories}>Calories totales : {totalCalories} kcal</Text>
 
       <FlatList
@@ -109,7 +107,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginVertical: 10,
-    color: "#FF6347", // Couleur pour mettre en évidence les calories
+    color: "#FF6347",
   },
   itemContainer: {
     padding: 10,
